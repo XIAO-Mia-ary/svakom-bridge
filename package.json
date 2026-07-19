@@ -1,0 +1,12 @@
+{
+  "name": "svakom-bridge",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node bridge/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "@abandonware/noble": "^1.9.2-11"
+  }
+}
