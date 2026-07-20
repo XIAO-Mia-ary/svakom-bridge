@@ -1,14 +1,12 @@
 import express from 'express';
 import mcpRouter from './mcp.js';
+import { commandQueue } from './queue.js';
 
 const app = express();
 app.use(express.json());
 
 const BRIDGE_SECRET = process.env.BRIDGE_SECRET || 'secret123';
 const PORT = process.env.PORT || 3000;
-
-// 命令队列（内存中）
-let commandQueue = [];
 
 // 中间件：验证 secret
 const checkSecret = (req, res, next) => {
