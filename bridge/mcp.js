@@ -1,4 +1,5 @@
 import express from 'express';
+import { commandQueue } from './queue.js';
 
 const router = express.Router();
 const BRIDGE_SECRET = process.env.BRIDGE_SECRET || 'secret';
@@ -12,8 +13,6 @@ const checkSecret = (req, res, next) => {
   next();
 };
 
-// 全局命令队列
-let commandQueue = [];
 
 // GET /mcp — 返回可用工具列表
 router.get('/', checkSecret, (req, res) => {
@@ -136,3 +135,4 @@ router.get('/queue', (req, res) => {
 });
 
 export default router;
+
